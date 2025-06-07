@@ -26,8 +26,8 @@ def visualize_results(models, results, X_test, y_test, data):
         product_data = result_df[result_df['Товар'] == product].set_index('Дата')
         original_data = data[data['Товар'] == product].set_index('Дата')
         
-        plt.figure(figsize=(14, 7))
-        plt.plot(original_data['Количество_товара'], label='Фактические остатки', alpha=0.5)
+        plt.figure(figsize=(16, 8))
+        plt.plot(original_data['Количество_товара'], label='Фактические остатки', alpha=0.51)
         plt.scatter(product_data.index, product_data['Фактический_остаток'],
                    color='red', label='Тестовые данные')
         plt.plot(product_data.index, product_data['Прогноз'],
@@ -35,7 +35,7 @@ def visualize_results(models, results, X_test, y_test, data):
         plt.fill_between(product_data.index,
                         product_data['Прогноз'] - product_data['Ошибка'],
                         product_data['Прогноз'] + product_data['Ошибка'],
-                        alpha=0.2, color='green', label='Погрешность')
+                        alpha=0.2, color='blue', label='Погрешность')
         
         plt.title(f'Прогнозирование остатков: {product}\n({best_model_name})')
         plt.xlabel('Дата')
