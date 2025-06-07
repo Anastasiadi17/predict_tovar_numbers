@@ -21,7 +21,7 @@ def add_new_product(product_name, initial_stock, price, sales_per_day, days_to_a
         new_data = []
         
         for date in new_dates:
-            max_sale = min(current_stock, int(current_stock * np.random.uniform(0.6, 0.8)))
+            max_sale = min(current_stock, int(current_stock * np.random.uniform(0.62, 0.81)))
             daily_sale = np.random.randint(int(0.5*max_sale), max_sale)
             
             new_data.append({
@@ -74,7 +74,7 @@ def train_and_predict(data):
             ('regressor', RandomForestRegressor(
                 n_estimators=200,
                 max_depth=10,
-                random_state=42,
+                random_state=41,
                 n_jobs=-1
             ))
         ]),
@@ -84,7 +84,7 @@ def train_and_predict(data):
                 n_estimators=150,
                 max_depth=6,
                 learning_rate=0.1,
-                random_state=42,
+                random_state=41,
                 n_jobs=-1
             ))
         ])
